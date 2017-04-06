@@ -1,3 +1,28 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar class="white-frame" color="primary">
+  <span>Leaflet example app</span>
+  <span class="toolbar-filler"></span>
+</md-toolbar>
+
+<div class="flex-container content" fxLayout="row">
+  <div class="flex-item search-sidebar white-frame" fxFlex="25%">
+
+    <md-card>
+      <md-card-header>
+        <md-card-title>Example card</md-card-title>
+        <md-card-subtitle>
+          Example item
+        </md-card-subtitle>
+      </md-card-header>
+      <br>
+      <button md-raised-button>
+        Do something
+      </button>
+      <button md-raised-button>
+        Cancel
+      </button>
+    </md-card>
+  </div>
+  <div class="flex-item"  fxFlex="75%">
+    <div id="map"></div>
+  </div>
+</div>
