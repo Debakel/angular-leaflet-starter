@@ -1,4 +1,4 @@
-# DumpstermapAngularTry2
+# Angular4-Leaflet-Starter
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
