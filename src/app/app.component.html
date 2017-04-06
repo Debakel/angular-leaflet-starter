@@ -7,19 +7,45 @@
   <div class="flex-item search-sidebar white-frame" fxFlex="25%">
 
     <md-card>
-      <md-card-header>
-        <md-card-title>Example card</md-card-title>
+      <md-card-title>Search OpenStreetMap</md-card-title>
+      <md-input-container class="search-box">
+        <input mdInput
+               placeholder="place name"
+               [(ngModel)]="searchQuery"
+               (keyup.enter)="search()">
+      </md-input-container>
+      <button md-button
+              class="search-button"
+              color="primary"
+              style="margin-left: 5px"
+              (click)="search()"
+              md-tooltip="Search this location">
+      </button>
+      <button md-button
+              class="search-button"
+              md-tooltip="Clear results"
+              (click)="clear()">
+        <i class="fa fa-remove"></i>
+      </button>
+    </md-card>
+    <md-card *ngFor="let result of results; let i = index"
+             class="search-result"
+             [ngClass]="{ 'selected-result': selectedIndex === i }">
+      <md-card-header class="clickable"
+                      (click)="showResult(result)"
+                      md-tooltip="Show boundary">
+        <md-card-title>{{ result.display_name }}</md-card-title>
         <md-card-subtitle>
-          Example item
+          {{ result.type }}
         </md-card-subtitle>
       </md-card-header>
       <br>
-      <button md-raised-button>
-        Do something
+      <button md-raised-button md-tooltip="Show details" (click)="showDetails(result)">
+        Details
       </button>
-      <button md-raised-button>
-        Cancel
-      </button>
+    </md-card>
+    <md-card class="search-result" *ngIf="noResult">
+      <md-card-subtitle>No Result</md-card-subtitle>
     </md-card>
   </div>
   <div class="flex-item"  fxFlex="75%">
